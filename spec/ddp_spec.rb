@@ -1,5 +1,4 @@
 require 'spec_helper'
-require "pp"
 
 describe Ddp do
   it 'has a version number' do
