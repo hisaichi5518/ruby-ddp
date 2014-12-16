@@ -1,0 +1,6 @@
+Go to https://github.com/hisaichi5518/ruby-ddp/issues for the roadmap and known issues.
+
+0.1.0 2014-12-16 07:29:33 UTC
+        - Added Ddp::Dumper
+        - Added Kernel.dp
+        - use dp and deprecated Ddp.dp and Ddp.dumper
