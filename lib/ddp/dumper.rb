@@ -17,6 +17,8 @@ module Ddp
             #{join_included_modules_for(obj, 12)}
           inspect:
             #{inspect_for(obj)}
+          source_location:
+            #{fetch_source_location(obj)}
         }
         EOF
       end.join()
@@ -33,6 +35,15 @@ module Ddp
 
     def inspect_for(obj)
       obj.inspect
+    end
+
+    def fetch_source_location(obj)
+      return "There is no source_location." if !obj.respond_to?(:source_location)
+      sl = obj.source_location
+      if sl.nil?
+        return "This is C method."
+      end
+      sl.inspect
     end
 
     def strip(text)
