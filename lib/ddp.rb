@@ -1,22 +1,20 @@
 require "ddp/version"
+require "ddp/core_ext/kernel"
+require "ddp/dumper"
 
 module Ddp
   def self.p(obj)
-    puts dumper(obj)
+    deprecated "Ddp.p(...) is deprecated. use `dp(...)`."
+    dp obj
   end
 
   def self.dumper(obj)
-    text = <<-EOF
-#{((obj.class.ancestors - obj.class.included_modules).join(" < "))} {
-  included_modules:
-    #{obj.class.included_modules.join("\n    ")}
-  inspect:
-    #{obj.inspect}
-    EOF
+    deprecated "Ddp.dumper(...) is deprecated. use `dp(...)`."
+    dp obj
+  end
 
-    if obj.methods.include?(:source_location)
-      text += "  source_location: #{obj.source_location || "(Opps! this is a C method.)"}\n"
-    end
-    text += "}"
+  private
+  def self.deprecated(text)
+    warn text + "this method will remove 0.1.5 and this gem version is #{VERSION}"
   end
 end
