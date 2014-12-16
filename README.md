@@ -1,6 +1,6 @@
 # Ddp
 
-TOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO SIMPLE Data Printer
+Too Simple Data Printer.
 
 ## Usage
 
@@ -9,27 +9,55 @@ Write ruby script:
 ```ruby
 require "ddp"
 
-Ddp.p({test: 1000})
-Ddp.p(Ddp.method(:dumper))
+class TestModule
+  def piyo
+    # ...
+  end
+end
+
+dp %w[100 101 102]
+dp test: 1000
+dp TestModule.method(:instance_method)
+dp TestModule.instance_method(:piyo)
 ```
 
 Run ruby script:
 
 ```shell
-$ ruby -Ilib test.rb
+ $ ruby -Ilib test.rb
+Array < Object < BasicObject {
+  included_modules:
+    Enumerable
+    Kernel
+  inspect:
+    ["100", "101", "102"]
+  source_location:
+    There is no source_location.
+}
 Hash < Object < BasicObject {
   included_modules:
     Enumerable
     Kernel
   inspect:
     {:test=>1000}
+  source_location:
+    There is no source_location.
 }
 Method < Object < BasicObject {
   included_modules:
     Kernel
   inspect:
-    #<Method: Ddp.dumper>
-  source_location: ["/Users/hisaichi5518/projects/ddp/lib/ddp.rb", 8]
+    #<Method: Class(Module)#instance_method>
+  source_location:
+    This is C method.
+}
+UnboundMethod < Object < BasicObject {
+  included_modules:
+    Kernel
+  inspect:
+    #<UnboundMethod: TestModule#piyo>
+  source_location:
+    ["test.rb", 4]
 }
 ```
 
