@@ -2,6 +2,8 @@
 
 Too Simple Data Printer.
 
+[![Build Status](https://travis-ci.org/hisaichi5518/scottie.svg)](https://travis-ci.org/hisaichi5518/scottie)
+
 ## Usage
 
 Write ruby script:
