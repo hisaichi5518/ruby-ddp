@@ -2,7 +2,7 @@
 
 Too Simple Data Printer.
 
-[![Build Status](https://travis-ci.org/hisaichi5518/scottie.svg)](https://travis-ci.org/hisaichi5518/scottie)
+[![Build Status](https://travis-ci.org/hisaichi5518/ruby-ddp.svg?branch=master)](https://travis-ci.org/hisaichi5518/ruby-ddp)
 
 ## Usage
 
